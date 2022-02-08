@@ -11,7 +11,7 @@
  * @return {ListNode}
  */
 var mergeTwoLists = function(list1, list2) {
-    const head = new ListNode(0);
+   const head = new ListNode(0);
     let now = head;
     let p1 = list1;
     let p2 = list2;
