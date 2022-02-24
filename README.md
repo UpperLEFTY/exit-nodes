@@ -11,7 +11,7 @@ Collection of LeetCode questions in js.
  - .
  
 
-- just expanding my knowledge on algorithms, data structures, and dynamic programming.
+- just expanding my knowledge on algorithms, data structures, dynamic programming, and databases.
 
 
 
