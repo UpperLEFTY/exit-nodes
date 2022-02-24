@@ -10,30 +10,39 @@
  * @return {ListNode}
  */
 var sortList = function(head) {
-    quicksort(head, null);
-    return head;
-};
+  if(head == null || head.next == null) return head
+  let slow = head, fast = head, pre = null
+  while(fast && fast.next) {
+    pre = slow
+    slow = slow.next
+    fast = fast.next.next
+  }
+  pre.next = null
+  const left = sortList(head)
+  const right = sortList(slow)
+  return merge(left, right)
+}
 
- function quicksort(head, tail) {
-     if (head == tail) {
-         return;
-     }
-     let slow = head, fast = head.next;
-     let p = head.val;
-     while (fast != tail) {
-         if (fast.val <= p) {
-             slow = slow.next;
-             swap(slow, fast);
-         }
-         fast = fast.next;
-     }
-     swap(head, slow);
-     quicksort(head, slow);
-     quicksort(slow.next, tail);
- }
+function merge(left, right) {
+  const ln1 = new ListNode()
+  let ln2 = ln1
+  while(left && right) {
+    if (left.val <= right.val) {
+      ln2.next = left
+      left = left.next
+    } else {
+      ln2.next = right
+      right = right.next
+    }
+    ln2 = ln2.next
+  }
+  if(left) {
+    ln2.next = left
+  }
 
- function swap(node1, node2) {
-     let tmp = node1.val; 
-     node1.val = node2.val;
-     node2.val = tmp;
- };
+  if(right) {
+    ln2.next = right
+  }
+
+  return ln1.next
+}
