@@ -4,10 +4,10 @@ Collection of LeetCode questions in js.
  Space complexity : O(1)
  
  - Favorite Resources
- - .https://projecteuler.net/
- - .https://leetcode.com/ [My favorite site, thus far]
- - .https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/
- - .https://www.bigocheatsheet.com/
+ - [https://projecteuler.net/]
+ - [https://leetcode.com/] [My favorite site, thus far]
+ - [https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/]
+ - [https://www.bigocheatsheet.com/]
  
  
 
