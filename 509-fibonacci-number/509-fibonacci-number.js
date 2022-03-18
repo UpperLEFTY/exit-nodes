@@ -3,11 +3,11 @@
  * @return {number}
  */
 const cache = {}
-const fib = function(N) {
-  if(cache[N]) return cache[N]
-  if(N === 0) return 0
-  if(N === 1) return 1
-  let res = fib(N - 1) + fib(N - 2)
-  cache[N] = res
+const fib = function(n) {
+  if(cache[n]) return cache[n]
+  if(n === 0) return 0
+  if(n === 1) return 1
+  let res = fib(n - 1) + fib(n - 2)
+  cache[n] = res
   return res
 };
