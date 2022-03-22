@@ -7,8 +7,7 @@ var jump = function(nums) {
     let step = 0;
     let now = 0;
     let max = 0;
-    
-    for(let i = 0;i < len - 1; i++) {
+    for (let i = 0;i < len - 1; i++) {
     max = Math.max(max, i + nums[i]);
     if (i === now) {
       step++;
