@@ -3,7 +3,7 @@
  * @return {number}
  */
 var minCostClimbingStairs = function(cost) {
-let f1 = cost[0];
+  let f1 = cost[0];
   let f2 = cost[1];
   for (let i = 2; i < cost.length; i++) {
     let f_cur = cost[i] + Math.min(f1, f2);
