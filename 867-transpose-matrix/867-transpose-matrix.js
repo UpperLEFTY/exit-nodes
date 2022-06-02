@@ -7,5 +7,7 @@ var transpose = function(matrix) {
 //     (prev[i] || []).concat(next[i])
 //   ), []);
 // };
-return matrix[0].map((col, i) => matrix.map(row => row[i]));
-}
+// return matrix[0].map((col, i) => matrix.map(row => row[i]));
+// };
+ return matrix[0].map((col, c) => matrix.map((row, r) => matrix[r][c]));
+};
