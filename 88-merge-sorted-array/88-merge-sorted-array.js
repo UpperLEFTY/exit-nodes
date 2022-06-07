@@ -6,10 +6,18 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-    let i = m - 1;
-    let j = n - 1;
-    let k = m + n - 1;
-    while (j >= 0) {
-        nums1[k--] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
-    }
+   if (nums2.length === 0) return nums1;
+ let fi = 0;
+ let si = 0;
+ for (let i = si; i < n; i++) {
+   let se = nums2[i];
+   while (se >= nums1[fi] && fi < m + n && fi < m + i) {
+     fi++;
+   }
+   nums1.splice(fi, 0, se);
+   fi++;
+ }
+ while (nums1.length > m + n) {
+   nums1.pop();
+ }
 };
