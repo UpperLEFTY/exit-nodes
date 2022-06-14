@@ -11,17 +11,17 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-   let h = new ListNode(0);
-    let ll = h;
-    let rr = h;
-    h.next = head;
-    for (let i = 0; i < n + 1; i++) {
-        rr = rr.next;
-    }
-     while(rr !== null) {
-         ll = ll.next;
-         rr = rr.next;
-     }
-    ll.next = ll.next.next;
-    return h.next;
+    if (head.next === null) return null;
+ let ptrBeforeN = head;
+ let count = 1;
+ // While there are more elements
+ let el = head.next;
+ while (el !== null) {
+   if (count > n) ptrBeforeN = ptrBeforeN.next;
+   el = el.next;
+   count++;
+ }
+ if (count === n) return head.next;
+ ptrBeforeN.next = ptrBeforeN.next.next;
+ return head; 
 };
