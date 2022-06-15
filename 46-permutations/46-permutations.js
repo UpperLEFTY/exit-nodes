@@ -2,26 +2,21 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function(nums) {
-   let res = [];
-  dfs(res, [], nums);
-  return res;
+const permute = function(nums) {
+  const res = []
+  bt(nums, 0, [], res)
+  return res
 };
 
-const dfs = function (res, arr, nums) {
-  let len = nums.length;
-  let tmp1 = null;
-  let tmp2 = null;
-    
-if (!len) return res.push(arr);
-  for (let i = 0; i < len; i++) {
-    tmp1 = Array.from(arr);
-    tmp1.push(nums[i]);
-
-    tmp2 = Array.from(nums);
-    tmp2.splice(i, 1);
-
-    dfs(res, tmp1, tmp2);
+function bt(nums, idx, cur, res) {
+  if(idx === nums.length) {
+    res.push(cur.slice())
+    return
   }
-};
-
+  for(let i = 0; i < nums.length; i++) {
+    if(cur.indexOf(nums[i]) !== -1) continue
+    cur.push(nums[i])
+    bt(nums, idx + 1, cur, res)
+    cur.pop()
+  }
+}
