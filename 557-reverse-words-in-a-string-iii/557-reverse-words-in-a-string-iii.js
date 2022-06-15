@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var reverseWords = function(s) {
+const reverseWords = function(s) {
     return s.split(' ').map(reverse).join(' ');
 };
 const reverse = function (word) {
