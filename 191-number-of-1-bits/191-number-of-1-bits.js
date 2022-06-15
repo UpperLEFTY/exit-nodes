@@ -8,5 +8,5 @@ var hammingWeight = function(n) {
    if(n & 1) res++
    n = n >>> 1
  }
- return res  
+ return res
 };
