@@ -3,10 +3,20 @@
  * @return {number}
  */
 var hammingWeight = function(n) {
-  let res = 0
- while(n > 0) {
-   if(n & 1) res++
-   n = n >>> 1
+//   let res = 0
+//  while(n > 0) {
+//    if(n & 1) res++
+//    n = n >>> 1
+//  }
+//  return res
+// };
+    
+    // Another Solution JS 
+    
+ const str = (n >>> 0).toString(2)
+ let res = 0
+ for(let c of str) {
+   if(c === '1') res++
  }
  return res
 };
