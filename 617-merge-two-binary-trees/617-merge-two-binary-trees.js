@@ -23,4 +23,4 @@ var mergeTrees = function(root1, root2) {
 };
 
 // knowledge of tree traversal algos make the approach simple
-// DFS solution
+// BST solution
