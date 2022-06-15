@@ -2,8 +2,8 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var orangesRotting = function(grid) {
-const m = grid.length, n = grid[0].length
+const orangesRotting = function(grid) {
+  const m = grid.length, n = grid[0].length
   const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]]
   const visited = new Set()
   let q = []
