@@ -3,12 +3,13 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-   const hash = {};
-    let len = nums.length;
-    for (let i = 0; i < len; i++) {
-        if (nums[i] in hash) return [hash[nums[i]], i];
-        hash[target - nums[i]] = i
+const twoSum = function(nums, target) {
+  const myObject = {};
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (myObject.hasOwnProperty(complement)) {
+      return [myObject[complement], i];
     }
-    return [-1, 1];
+    myObject[nums[i]] = i;
+  }
 };
