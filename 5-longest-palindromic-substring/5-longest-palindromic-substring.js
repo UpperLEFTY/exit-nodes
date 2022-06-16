@@ -2,28 +2,19 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
-  let start = 0;
-  let end = 0;
-  let len = s.length;
-  let num = 0;
-  for (let i = 0; i < len; i++) {
-    num = Math.max(expandAroundCenter(s, i, i), expandAroundCenter(s, i, i + 1));
-    if (num > end - start) {
-      start = i - Math.floor((num - 1) / 2);
-      end = i + Math.floor(num / 2);
-    }
+const longestPalindrome = function(s) {
+  let res = ''
+  for(let i = 0, len = s.length; i < len; i++) {
+    let s1 = chk(s,i,i), s2 = chk(s,i,i+1)
+    if(s1.length > res.length) res = s1
+    if(s2.length > res.length) res = s2
   }
-  return s.slice(start, end + 1);
+  return res
 };
 
-const expandAroundCenter = function (s, left, right) {
-  let l = left;
-  let r = right;
-  let len = s.length;
-  while (l >= 0 && r < len && s[l] === s[r]) {
-    l--;
-    r++;
+function chk(s, i, j) {
+  for(; i>= 0 && j < s.length; i--, j++) {
+    if(s[i] !== s[j]) break
   }
-  return r - l - 1;
-};
+  return s.slice(i+1, j)
+}
