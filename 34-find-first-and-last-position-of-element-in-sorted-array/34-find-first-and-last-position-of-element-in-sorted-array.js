@@ -29,3 +29,4 @@ const searchRange = function(nums, target) {
   res = [li, hi];
   return res;
 };
+   // O(n)
