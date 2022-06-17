@@ -35,7 +35,7 @@ const minCameraCover = function(root) {
 //      }
 //    }
 //  }
-// }            //Another solution JS
+// }            //Another solution JS albeit less optimal 
     
     
       if (root === null) return 0;
