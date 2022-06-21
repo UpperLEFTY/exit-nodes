@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums) {
+const threeSum = function(nums) {
   let len = nums.length;
   let res = [];
   let l = 0;
