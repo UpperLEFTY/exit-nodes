@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
+const isHappy = function(n) {
     let map = {};
     let tmp = 0;
   if (n < 1) return false;
