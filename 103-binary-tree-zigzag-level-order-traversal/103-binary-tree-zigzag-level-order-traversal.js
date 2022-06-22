@@ -39,22 +39,46 @@
 //   }
 //   bfs(next, res)
 // }
-    // Another soultion JS
+    // Another solution JS
+
+// const zigzagLevelOrder = function (root) {
+//   const res = []
+//   dfs(root, res, 0)
+//   return res
+  
+//   function dfs(node, res, level) {
+//     if(node == null) return
+//     if(res.length <= level) res.push([])
+//     const tmp = res[level]
+//     if(level % 2 === 0) tmp.push(node.val)
+//     else tmp.unshift(node.val)
+    
+//     dfs(node.left, res, level + 1)
+//     dfs(node.right, res, level + 1)
+//   }
+// };
+ 
+//  Another solution JS
 
 const zigzagLevelOrder = function (root) {
-  const res = []
-  dfs(root, res, 0)
-  return res
-  
-  function dfs(node, res, level) {
-    if(node == null) return
-    if(res.length <= level) res.push([])
-    const tmp = res[level]
-    if(level % 2 === 0) tmp.push(node.val)
-    else tmp.unshift(node.val)
-    
-    dfs(node.left, res, level + 1)
-    dfs(node.right, res, level + 1)
+  if (!root) return [];
+  const queue = [root];
+  const zigzag = [];
+  let numLevels = 1;
+  while (queue.length > 0) {
+    const width = queue.length;
+    const levelTraversal = [];
+    for (let i = 0; i < width; i++) {
+      const currentNode = queue.shift();
+      if (currentNode.right) queue.push(currentNode.right);
+      if (currentNode.left) queue.push(currentNode.left);
+      numLevels % 2 === 0
+        ? levelTraversal.push(currentNode.val)
+        : levelTraversal.unshift(currentNode.val);
+    }
+    zigzag.push(levelTraversal);
+    numLevels++;
   }
-};
 
+  return zigzag;
+};
