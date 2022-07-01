@@ -2,12 +2,13 @@
  * @param {character[][]} grid
  * @return {number}
  */
-var numIslands = function(grid) {
-  if (grid.length === 0) return 0;
+const numIslands = function(grid) {
+    if (grid.length === 0) return 0;
     const totalRow = grid.length;
     const totalCol = grid[0].length;
     let res = 0;
     
+      
     for (let i = 0; i < totalRow; i += 1) {
         for (let j = 0; j < totalCol; j += 1) {
             if (grid[i][j] === '1') {
