@@ -3,8 +3,8 @@
  * @param {string[]} words
  * @return {number[]}
  */
-var findSubstring = function(s, words) {
-     if (words == null || words.length === 0 || !s) return []
+const findSubstring = function(s, words) {
+  if (words == null || words.length === 0 || !s) return []
   const wh = {}
   const slen = s.length
   const wl = words[0].length
