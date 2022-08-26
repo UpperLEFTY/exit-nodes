@@ -2,9 +2,9 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var runningSum = function(nums) {
+const runningSum = function(nums) {
   for(let i = 1, len = nums.length; i < len; i++) {
    nums[i] += nums[i - 1]
  }
  return nums
-};
+}
