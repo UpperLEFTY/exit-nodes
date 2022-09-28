@@ -10,7 +10,7 @@
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+const removeNthFromEnd = function(head, n) {
     if (head.next === null) return null;
  let ptrBeforeN = head;
  let count = 1;
