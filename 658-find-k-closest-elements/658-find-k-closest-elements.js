@@ -4,8 +4,8 @@
  * @param {number} x
  * @return {number[]}
  */
-var findClosestElements = function(arr, k, x) {
-    let lo=0,hi=arr.length-1
+const findClosestElements = function(arr, k, x) {
+    let lo = 0,hi = arr.length-1
  while(hi-lo>=k){
      let left=Math.abs(x-arr[lo])
      let right=Math.abs(x-arr[hi])
@@ -19,3 +19,5 @@ var findClosestElements = function(arr, k, x) {
  }
  return arr.slice(lo,hi+1)
 }
+    
+    
