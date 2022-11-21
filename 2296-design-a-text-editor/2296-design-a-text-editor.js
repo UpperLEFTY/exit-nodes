@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-var TextEditor = function() {
+const TextEditor = function() {
  this.left = []
  this.right = []
  this.idx = 0
