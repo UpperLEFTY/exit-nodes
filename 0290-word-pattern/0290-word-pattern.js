@@ -3,10 +3,10 @@
  * @param {string} s
  * @return {boolean}
  */
-const wordPattern = function(pattern, s) {
+const wordPattern = function(pattern, str) {
   const pm = {}
   const sm = {}
-  const sa = s.trim().split(' ')
+  const sa = str.trim().split(' ')
   if(pattern.length !== sa.length) return false
   for(let i = 0; i< pattern.length; i++) {
     if(!pm.hasOwnProperty(pattern[i])) {
