@@ -1,34 +1,77 @@
+// class Solution {
+//     public boolean isNumber(String s) {
+        
+//          boolean seenDigit = false;
+//         boolean seenExponent = false;
+//         boolean seenDot = false;
+        
+//         for (int i = 0; i < s.length(); i++) {
+//             char curr = s.charAt(i);
+//             if (Character.isDigit(curr)) {
+//                 seenDigit = true;
+//             } else if (curr == '+' || curr == '-') {
+//                 if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
+//                     return false;
+//                 }
+//             } else if (curr == 'e' || curr == 'E') {
+//                 if (seenExponent || !seenDigit) {
+//                     return false;
+//                 }
+//                 seenExponent = true;
+//                 seenDigit = false;
+//             } else if (curr == '.') {
+//                 if (seenDot || seenExponent) {
+//                     return false;
+//                 }
+//                 seenDot = true;
+//             } else {
+//                 return false;
+//             }
+//         }
+        
+//         return seenDigit;
+//     }
+// }
+
+// ANOTHER 
+
 class Solution {
-    public boolean isNumber(String s) {
-        
-         boolean seenDigit = false;
-        boolean seenExponent = false;
-        boolean seenDot = false;
-        
-        for (int i = 0; i < s.length(); i++) {
-            char curr = s.charAt(i);
-            if (Character.isDigit(curr)) {
-                seenDigit = true;
-            } else if (curr == '+' || curr == '-') {
-                if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
-                    return false;
-                }
-            } else if (curr == 'e' || curr == 'E') {
-                if (seenExponent || !seenDigit) {
-                    return false;
-                }
-                seenExponent = true;
-                seenDigit = false;
-            } else if (curr == '.') {
-                if (seenDot || seenExponent) {
-                    return false;
-                }
-                seenDot = true;
-            } else {
-                return false;
-            }
-        }
-        
-        return seenDigit;
+  public boolean isNumber(String s) {
+    s = s.trim();
+    if (s.isEmpty())
+      return false;
+
+    boolean seenNum = false;
+    boolean seenDot = false;
+    boolean seenE = false;
+
+    for (int i = 0; i < s.length(); ++i) {
+      switch (s.charAt(i)) {
+        case '.':
+          if (seenDot || seenE)
+            return false;
+          seenDot = true;
+          break;
+        case 'e':
+        case 'E':
+          if (seenE || !seenNum)
+            return false;
+          seenE = true;
+          seenNum = false;
+          break;
+        case '+':
+        case '-':
+          if (i > 0 && s.charAt(i - 1) != 'e')
+            return false;
+          seenNum = false;
+          break;
+        default:
+          if (!Character.isDigit(s.charAt(i)))
+            return false;
+          seenNum = true;
+      }
     }
+
+    return seenNum;
+  }
 }
