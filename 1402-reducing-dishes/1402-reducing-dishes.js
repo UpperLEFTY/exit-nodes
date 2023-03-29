@@ -2,7 +2,7 @@
  * @param {number[]} satisfaction
  * @return {number}
  */
-var maxSatisfaction = function(satisfaction) {
+const maxSatisfaction = function(satisfaction) {
 satisfaction.sort((a, b) => a - b)
  let res = 0
  let total = 0
