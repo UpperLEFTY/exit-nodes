@@ -4,7 +4,9 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 # first iteration: Top-down DFS
+
 # class Solution:
 #   def minDepth(self, root: Optional[TreeNode]) -> int:
 #     if not root:
@@ -15,7 +17,7 @@
 #       return self.minDepth(root.left) + 1
 #     return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
-# second iteration: Bottom-up BFS
+# second iteration: Bottom-up BFS better runtime and memory usage
 
 class Solution:
   def minDepth(self, root: Optional[TreeNode]) -> int:
