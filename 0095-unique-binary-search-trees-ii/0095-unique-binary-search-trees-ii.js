@@ -11,7 +11,7 @@
  * @return {TreeNode[]}
  */
 const generateTrees = function(n) {
-     if (n === 0) return []
+ if (n === 0) return []
  return genTreeList(1, n)
 }
 function genTreeList(start, end) {
