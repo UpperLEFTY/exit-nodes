@@ -5,7 +5,7 @@
  * @return {string[][]}
  */
 const findLadders = function(beginWord, endWord, wordList) {
-     const res = []
+ const res = []
   if (!wordList.includes(endWord)) return res
   const set1 = new Set([beginWord]),
     set2 = new Set([endWord]),
