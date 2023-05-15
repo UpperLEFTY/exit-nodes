@@ -10,7 +10,7 @@
  * @param {number} k
  * @return {ListNode}
  */
-var swapNodes = function(head, k) {
+const swapNodes = function(head, k) {
   const dummy = new ListNode()
  dummy.next = head
  const arr = []
