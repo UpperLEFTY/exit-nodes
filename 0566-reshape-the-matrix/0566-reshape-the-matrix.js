@@ -4,7 +4,7 @@
  * @param {number} c
  * @return {number[][]}
  */
-var matrixReshape = function(mat, r, c) {
+const matrixReshape = function(mat, r, c) {
   if (isValid(mat, r, c) === false) {
     return mat;
   }
