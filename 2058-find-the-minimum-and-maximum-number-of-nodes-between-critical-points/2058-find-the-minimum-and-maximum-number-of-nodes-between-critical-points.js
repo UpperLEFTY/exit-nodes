@@ -9,34 +9,25 @@
  * @param {ListNode} head
  * @return {number[]}
  */
-function nodesBetweenCriticalPoints(head) {
-  let minDistance = Infinity;
-  let firstCriticalPos = null;
-  let prevCriticalPos = null;
-  let maxDistance = -1;
-  let position = 0;
-  let currentNode = head.next;
-  let prevNode = head;
-
-  while (currentNode && currentNode.next) {
-    if ((currentNode.val > prevNode.val && currentNode.val > currentNode.next.val) || 
-        (currentNode.val < prevNode.val && currentNode.val < currentNode.next.val)) {
-      if (firstCriticalPos === null) {
-        firstCriticalPos = position;
-      } else {
-        minDistance = Math.min(minDistance, position - prevCriticalPos);
-        maxDistance = position - firstCriticalPos;
-      }
-      prevCriticalPos = position;
+const nodesBetweenCriticalPoints = function(head) {
+  const arr = []
+  let cur = head
+  while(cur) {
+    arr.push(cur.val)
+    cur = cur.next
+  }
+  const idxArr = []
+  const n = arr.length
+  for(let i = 1; i < n - 1; i++) {
+    if((arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) || (arr[i] < arr[i - 1] && arr[i] < arr[i + 1])) {
+      idxArr.push(i)
     }
-    prevNode = currentNode;
-    currentNode = currentNode.next;
-    position++;
   }
-
-  if (minDistance === Infinity) {
-    minDistance = -1;
+  
+  let min = Infinity, max = -1
+  for(let i = 1; i < idxArr.length; i++) {
+    if(idxArr[i] - idxArr[i - 1] < min) min = idxArr[i] - idxArr[i - 1]
   }
-
-  return [minDistance, maxDistance];
-}
+  if(idxArr.length > 1) max = idxArr[idxArr.length - 1] - idxArr[0]
+  return [min === Infinity ? -1 : min, max]
+};
